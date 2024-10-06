@@ -8,9 +8,9 @@ import 'src/modules/home/components/resultado_consulta.dart';
 
 void main() {
   runApp(Directionality(
-    textDirection: TextDirection.ltr, // Defina a direção do texto
-    // child: AppWidget(),
-    child: ResultadoConsulta()
+    textDirection: TextDirection.ltr,
+    child: AppWidget(),
+    // child: ResultadoConsulta()
   ));
 }
 
@@ -22,10 +22,8 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      // Inicialização do aplicativo na página inicial
       initialRoute: AppRoutes.initial, 
       routes: {
-        // Definindo as rotas nomeadas
         AppRoutes.initial: (context) => InitialPage(),
         AppRoutes.home: (context) => HomePage(),
         AppRoutes.history: (context) => HistoryPage(),
