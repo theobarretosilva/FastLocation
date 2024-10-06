@@ -8,7 +8,7 @@ class ResultadoConsulta extends StatelessWidget {
     final String cidadeUf;
     final String cep;
 
-    ResultadoConsulta({
+    const ResultadoConsulta({super.key, 
         required this.logradouro,
         required this.bairro,
         required this.complemento,
@@ -23,25 +23,25 @@ class ResultadoConsulta extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
                 children: [
-                    Text(
+                    const Text(
                         "Dados da Localização",
                         textAlign: TextAlign.center,
                         style: TextStyle(color: AppColors.tertiary, fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text.rich(
                         TextSpan(
                             text: "Logradouro/Rua: ",
-                            style: TextStyle(color: AppColors.tertiary, fontSize: 16),
+                            style: const TextStyle(color: AppColors.tertiary, fontSize: 16),
                             children: [
                                 TextSpan(
                                     text: logradouro,
-                                    style: TextStyle(color: Colors.black, fontSize: 16),
+                                    style: const TextStyle(color: Colors.black, fontSize: 16),
                                 ),
                             ],
                         ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text.rich(
                         TextSpan(
                             text: "Bairro/Distrito: ",
