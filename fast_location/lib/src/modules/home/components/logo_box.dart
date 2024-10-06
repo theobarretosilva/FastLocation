@@ -5,16 +5,15 @@ class LogoBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
               height: 100,
               child: Center(
                 child: 
-                // Image.asset(
-                //     'assets/images/fast_location_logo.png',
-                //     width: 100,
-                //     height: 100,
-                //   ),
-                Text("data")
+                Image.asset(
+                    'assets/images/logo.png',
+                    width: 100,
+                    height: 100,
+                  ),
               ),
             );
   }
