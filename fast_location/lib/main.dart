@@ -8,7 +8,8 @@ import 'src/modules/home/components/resultado_consulta.dart';
 void main() {
   runApp(Directionality(
     textDirection: TextDirection.ltr, // Defina a direção do texto
-    child: AppWidget(),
+    // child: AppWidget(),
+    child: ResultadoConsulta()
   ));
 }
 
