@@ -5,6 +5,8 @@ import '../controller/history_controller.dart';
 class HistoryPage extends StatelessWidget {
   final HistoryController controller = HistoryController();
 
+  HistoryPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Carrega o histórico automaticamente quando a página é acessada
@@ -12,12 +14,12 @@ class HistoryPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Histórico'),
+        title: const Text('Histórico'),
       ),
       body: Observer(
         builder: (_) {
           if (controller.history.isEmpty) {
-            return Center(
+            return const Center(
               child: Text('Nenhum histórico disponível'),
             );
           }
@@ -37,7 +39,7 @@ class HistoryPage extends StatelessWidget {
           // Exemplo de adicionar um item ao histórico
           controller.addHistoryItem('Novo item ${controller.history.length + 1}');
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
