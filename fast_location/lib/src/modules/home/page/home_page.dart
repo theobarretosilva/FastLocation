@@ -4,6 +4,7 @@ import 'package:fast_location/src/modules/home/components/container_history.dart
 import 'package:fast_location/src/modules/home/components/container_message.dart';
 import 'package:fast_location/src/modules/home/components/logo_box.dart';
 import 'package:flutter/material.dart';
+import '../components/latest_locations.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -36,6 +37,16 @@ class HomePage extends StatelessWidget {
             
             SizedBox(height: 20),
             ContainerHistory(),
+            // ("condicao de historico de licalizacao" ? 
+            //     LatestLocations(
+            //         bairro: "Saco Grande",
+            //         logradouro: "Do lado do Brisa",
+            //         cidadeUf: "Florianópolis/SC",
+            //         cep: "88101-040",
+            //     ) : (
+            //         ContainerHistory(),
+            //     )
+            // )
             SizedBox(height: 20),
             ButtonHistory(),
           ],

@@ -7,7 +7,6 @@ class HistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Carrega o histórico automaticamente quando a página é acessada
     controller.loadHistory();
 
     return Scaffold(
@@ -34,7 +33,6 @@ class HistoryPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Exemplo de adicionar um item ao histórico
           controller.addHistoryItem('Novo item ${controller.history.length + 1}');
         },
         child: Icon(Icons.add),
