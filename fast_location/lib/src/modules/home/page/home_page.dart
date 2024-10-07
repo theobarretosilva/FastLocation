@@ -68,20 +68,21 @@ Widget build(BuildContext context) {
 // controller.loadHistory();
 
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-                children: [
-                    LogoBox(),
-                    SizedBox(height: 20),
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            const LogoBox(),
+            const SizedBox(height: 20),
 
-                    (resultado? ResultadoConsulta(logradouro: logradouro, bairro: bairro, complemento: complemento, cidadeUf: cidadeUf, cep: ceP) : const ContainerMessage() ),
-                    
-                    SizedBox(height: 20),
-                    ElevatedButton(
-                        onPressed: () async {
-                            String? valor = await _controller.showModal(context);
+            (resultado? ResultadoConsulta(logradouro: logradouro, bairro: bairro, complemento: complemento, cidadeUf: cidadeUf, cep: ceP) : ContainerMessage() ),
+            
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () async {
+              // Chama o modal e aguarda o valor retornado
+            String? valor = await _controller.showModal(context);
 
                             if (valor != null) {
                                 if (await searchCEP(valor))  {

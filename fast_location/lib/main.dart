@@ -15,6 +15,8 @@ void main() {
 }
 
 class AppWidget extends StatelessWidget {
+  const AppWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,7 +27,7 @@ class AppWidget extends StatelessWidget {
       initialRoute: AppRoutes.initial, 
       routes: {
         AppRoutes.initial: (context) => InitialPage(),
-        AppRoutes.home: (context) => HomePage(),
+        AppRoutes.home: (context) => const HomePage(),
         AppRoutes.history: (context) => HistoryPage(),
       },
     );

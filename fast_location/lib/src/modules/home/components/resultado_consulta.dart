@@ -45,50 +45,50 @@ class ResultadoConsulta extends StatelessWidget {
                     Text.rich(
                         TextSpan(
                             text: "Bairro/Distrito: ",
-                            style: TextStyle(color: AppColors.tertiary, fontSize: 16),
+                            style: const TextStyle(color: AppColors.tertiary, fontSize: 16),
                             children: [
                                 TextSpan(
                                     text: bairro,
-                                    style: TextStyle(color: Colors.black, fontSize: 16),
+                                    style: const TextStyle(color: Colors.black, fontSize: 16),
                                 ),
                             ],
                         ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text.rich(
                         TextSpan(
                             text: "Complemento: ",
-                            style: TextStyle(color: AppColors.tertiary, fontSize: 16),
+                            style: const TextStyle(color: AppColors.tertiary, fontSize: 16),
                             children: [
                                 TextSpan(
                                     text: complemento,
-                                    style: TextStyle(color: Colors.black, fontSize: 16),
+                                    style: const TextStyle(color: Colors.black, fontSize: 16),
                                 ),
                             ],
                         ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text.rich(
                         TextSpan(
                             text: "Cidade/UF: ",
-                            style: TextStyle(color: AppColors.tertiary, fontSize: 16),
+                            style: const TextStyle(color: AppColors.tertiary, fontSize: 16),
                             children: [
                                 TextSpan(
                                     text: cidadeUf,
-                                    style: TextStyle(color: Colors.black, fontSize: 16),
+                                    style: const TextStyle(color: Colors.black, fontSize: 16),
                                 ),
                             ],
                         ),
                     ),
-                    SizedBox(height: 5),
+                    const SizedBox(height: 5),
                     Text.rich(
                         TextSpan(
                             text: "CEP: ",
-                            style: TextStyle(color: AppColors.tertiary, fontSize: 16),
+                            style: const TextStyle(color: AppColors.tertiary, fontSize: 16),
                             children: [
                                 TextSpan(
                                     text: cep,
-                                    style: TextStyle(color: Colors.black, fontSize: 16),
+                                    style: const TextStyle(color: Colors.black, fontSize: 16),
                                 ),
                             ],
                         ),

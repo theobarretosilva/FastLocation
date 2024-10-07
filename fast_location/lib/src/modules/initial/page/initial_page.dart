@@ -3,6 +3,8 @@ import '../../../shared/colors/colors.dart';
 import 'package:fast_location/src/modules/home/page/home_page.dart';
 
 class InitialPage extends StatefulWidget {
+  const InitialPage({super.key});
+
   @override
   _InitialPageState createState() => _InitialPageState();
 }
@@ -13,10 +15,10 @@ class _InitialPageState extends State<InitialPage> {
     super.initState();
 
     // Temporizador para redirecionar para a HomePage após 3 segundos
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+          pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             const begin = 0.0; // Começa com opacidade 0
             const end = 1.0;   // Termina com opacidade 1
@@ -49,8 +51,8 @@ class _InitialPageState extends State<InitialPage> {
               width: 150,
               height: 150,
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               "FastLocation",
               style: TextStyle(
                 fontSize: 20,
