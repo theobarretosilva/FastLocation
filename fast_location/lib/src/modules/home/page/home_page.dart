@@ -5,12 +5,28 @@ import 'package:fast_location/src/modules/home/components/container_message.dart
 import 'package:fast_location/src/modules/home/components/logo_box.dart';
 import 'package:flutter/material.dart';
 import '../components/latest_locations.dart';
+import '../../history/controller/history_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+    const HomePage({super.key});
+
+    // final HistoryController controller = HistoryController();
+
+    Future<void> openGoogleMaps(String destination) async {
+        final googleMapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=$destination&travelmode=driving';
+
+        if (await canLaunchUrl(Uri.parse(googleMapsUrl))) {
+            await launchUrl(Uri.parse(googleMapsUrl));
+        } else {
+            throw 'Could not open the map.';
+        }
+    }
 
   @override
   Widget build(BuildContext context) {
+    // controller.loadHistory();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: const Padding(
@@ -37,16 +53,14 @@ class HomePage extends StatelessWidget {
             
             SizedBox(height: 20),
             ContainerHistory(),
-            // ("condicao de historico de licalizacao" ? 
-            //     LatestLocations(
+            // controller.history.isEmpty
+            //     ? const ContainerHistory()
+            //     : LatestLocations(
             //         bairro: "Saco Grande",
             //         logradouro: "Do lado do Brisa",
             //         cidadeUf: "Florianópolis/SC",
             //         cep: "88101-040",
-            //     ) : (
-            //         ContainerHistory(),
-            //     )
-            // )
+            //     ),
             SizedBox(height: 20),
             ButtonHistory(),
           ],
@@ -63,7 +77,10 @@ class HomePage extends StatelessWidget {
             children: [
               const SizedBox(width: 32), // Espaço para manter a simetria
               FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                    String destination = "Avenida Cruz e Souza, 441";
+                    openGoogleMaps(destination);
+                },
                 backgroundColor: Colors.green,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
