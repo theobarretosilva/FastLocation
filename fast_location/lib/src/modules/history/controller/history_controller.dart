@@ -1,5 +1,6 @@
 import 'package:mobx/mobx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:fast_location/src/modules/home/model/endereco_model.dart';
 
 part 'history_controller.g.dart';
 
@@ -18,9 +19,9 @@ abstract class _HistoryControllerBase with Store {
   }
 
   @action
-  Future<void> addHistoryItem(String item) async {
+  Future<void> addHistoryItem(Endereco endereco) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    history.add(item);
+    history.add(endereco);
     await prefs.setStringList('history', history.toList());
   }
 }
