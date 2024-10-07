@@ -13,13 +13,13 @@ mixin _$HistoryController on _HistoryControllerBase, Store {
       Atom(name: '_HistoryControllerBase.history', context: context);
 
   @override
-  ObservableList<String> get history {
+  ObservableList<Endereco> get history {
     _$historyAtom.reportRead();
     return super.history;
   }
 
   @override
-  set history(ObservableList<String> value) {
+  set history(ObservableList<Endereco> value) {
     _$historyAtom.reportWrite(value, super.history, () {
       super.history = value;
     });
@@ -37,8 +37,9 @@ mixin _$HistoryController on _HistoryControllerBase, Store {
       AsyncAction('_HistoryControllerBase.addHistoryItem', context: context);
 
   @override
-  Future<void> addHistoryItem(String item) {
-    return _$addHistoryItemAsyncAction.run(() => super.addHistoryItem(item));
+  Future<void> addHistoryItem(Endereco endereco) {
+    return _$addHistoryItemAsyncAction
+        .run(() => super.addHistoryItem(endereco));
   }
 
   @override
