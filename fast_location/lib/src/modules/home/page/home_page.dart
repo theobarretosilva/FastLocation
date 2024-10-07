@@ -3,13 +3,50 @@ import 'package:fast_location/src/modules/home/components/button_search.dart';
 import 'package:fast_location/src/modules/home/components/container_history.dart';
 import 'package:fast_location/src/modules/home/components/container_message.dart';
 import 'package:fast_location/src/modules/home/components/logo_box.dart';
+import 'package:fast_location/src/modules/home/controller/modal_controller.dart';
+import 'package:fast_location/src/modules/home/components/resultado_consulta.dart';
 import 'package:flutter/material.dart';
 import '../components/latest_locations.dart';
 import '../../history/controller/history_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
-class HomePage extends StatelessWidget {
-    const HomePage({super.key});
+
+final _controller = ModalController();
+bool resultado = false;
+late String logradouro;
+late String bairro;
+late String complemento;
+late String cidadeUf;
+late String ceP;
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+    @override
+    State<HomePage> createState() => _HomePageState();
+    
+}
+
+class _HomePageState extends State<HomePage> {
+
+  searchCEP(String cep ) async {
+    String url = "https://viacep.com.br/ws/${cep}/json/";
+
+    http.Response response;
+
+    response = await http.get(Uri.parse(url));
+
+    Map<String, dynamic> retorno = json.decode(response.body);
+
+    logradouro = retorno["logradouro"];
+    bairro = retorno["bairro"];
+    complemento = retorno["complemento"];
+    cidadeUf = retorno["localidade"]+", "+ retorno["uf"];
+    ceP = retorno["cep"];
+  return retorno.isNotEmpty;
+}
 
     // final HistoryController controller = HistoryController();
 
@@ -35,9 +72,36 @@ class HomePage extends StatelessWidget {
           children: [
             LogoBox(),
             SizedBox(height: 20),
-            ContainerMessage(),
+
+            (resultado? ResultadoConsulta(logradouro: logradouro, bairro: bairro, complemento: complemento, cidadeUf: cidadeUf, cep: ceP) : const ContainerMessage() ),
+            
             SizedBox(height: 20),
-            ButtonSearch(),
+            ElevatedButton(
+              onPressed: () async {
+              // Chama o modal e aguarda o valor retornado
+            String? valor = await _controller.showModal(context);
+
+            // Exibe o valor retornado em um SnackBar, por exemplo
+            if (valor != null) {
+              if (await searchCEP(valor))  {
+                setState(() {
+                  resultado = true;
+                });
+              }
+            }
+
+            _controller.clear();
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                minimumSize: const Size(double.infinity, 45), 
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0),
+                ),
+              ),
+              child: const Text('Localizar Endereço', style: TextStyle( color: Color(0xFFFFFFFF)),),
+            ),
+
             SizedBox(height: 20),
 
             Row(
