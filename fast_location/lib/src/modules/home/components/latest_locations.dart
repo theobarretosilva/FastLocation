@@ -8,12 +8,12 @@ class LatestLocations extends StatelessWidget {
     final String cep;
 
     const LatestLocations({
-        Key? key,
+        super.key,
         required this.bairro,
         required this.logradouro,
         required this.cidadeUf,
         required this.cep,
-    }) : super(key: key);
+    });
 
     @override
     Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class LatestLocations extends StatelessWidget {
                                 children: [
                                     Text(
                                         bairro,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.black,
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class LatestLocations extends StatelessWidget {
                                     ),
                                     Text(
                                         logradouro,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.black,
                                             fontSize: 14
                                         ),
@@ -53,7 +53,7 @@ class LatestLocations extends StatelessWidget {
                                 children: [
                                     Text(
                                         cidadeUf,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: AppColors.primary,
                                             fontSize: 16
                                         ),
@@ -61,7 +61,7 @@ class LatestLocations extends StatelessWidget {
                                     ),
                                     Text(
                                         cep,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.black, 
                                             fontSize: 14, 
                                             fontWeight: FontWeight.bold

@@ -9,7 +9,7 @@ class ButtonSearch extends StatelessWidget {
   const ButtonSearch({super.key});
 
   searchCEP(String cep ) async {
-  String url = "https://viacep.com.br/ws/${cep}/json/";
+  String url = "https://viacep.com.br/ws/$cep/json/";
 
   http.Response response;
 

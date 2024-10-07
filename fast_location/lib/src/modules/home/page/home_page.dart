@@ -32,7 +32,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   searchCEP(String cep ) async {
-    String url = "https://viacep.com.br/ws/${cep}/json/";
+    String url = "https://viacep.com.br/ws/$cep/json/";
 
     http.Response response;
 
@@ -66,16 +66,16 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            LogoBox(),
-            SizedBox(height: 20),
+            const LogoBox(),
+            const SizedBox(height: 20),
 
-            (resultado? ResultadoConsulta(logradouro: logradouro, bairro: bairro, complemento: complemento, cidadeUf: cidadeUf, cep: ceP) : const ContainerMessage() ),
+            (resultado? ResultadoConsulta(logradouro: logradouro, bairro: bairro, complemento: complemento, cidadeUf: cidadeUf, cep: ceP) : ContainerMessage() ),
             
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
               // Chama o modal e aguarda o valor retornado
@@ -102,9 +102,9 @@ class _HomePageState extends State<HomePage> {
               child: const Text('Localizar Endereço', style: TextStyle( color: Color(0xFFFFFFFF)),),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-            Row(
+            const Row(
               children: [
                 Icon(Icons.place, color: Color(0xFF204C22), size: 30,),
                 SizedBox(width: 16),
@@ -115,8 +115,8 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             
-            SizedBox(height: 20),
-            ContainerHistory(),
+            const SizedBox(height: 20),
+            const ContainerHistory(),
             // controller.history.isEmpty
             //     ? const ContainerHistory()
             //     : LatestLocations(
@@ -125,8 +125,8 @@ class _HomePageState extends State<HomePage> {
             //         cidadeUf: "Florianópolis/SC",
             //         cep: "88101-040",
             //     ),
-            SizedBox(height: 20),
-            ButtonHistory(),
+            const SizedBox(height: 20),
+            const ButtonHistory(),
           ],
         ),
       ),
